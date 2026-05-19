@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dla Najlepszej Mamy ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pink-deep: #d4507a;
+      --pink-mid: #e87ba3;
+      --pink-light: #f5b8cf;
+      --pink-pale: #fde8f0;
+      --pink-blush: #fff0f5;
+      --white: #ffffff;
+      --gold: #c9956e;
+      --text-dark: #4a2035;
+      --text-mid: #7a3d5a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: var(--pink-blush);
+      background-image:
+        radial-gradient(ellipse at 10% 20%, #fce4f0 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 80%, #f8d7e8 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, #fff5f9 0%, transparent 70%);
+      font-family: 'Lora', Georgia, serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 16px 60px;
+      overflow-x: hidden;
+    }
+
+    /* Floating petals */
+    .petals {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .petal {
+      position: absolute;
+      top: -60px;
+      font-size: 22px;
+      opacity: 0;
+      animation: fall linear infinite;
+    }
+    .petal:nth-child(1)  { left: 5%;  animation-duration: 8s;  animation-delay: 0s;   font-size: 18px; }
+    .petal:nth-child(2)  { left: 15%; animation-duration: 11s; animation-delay: 2s;   font-size: 24px; }
+    .petal:nth-child(3)  { left: 25%; animation-duration: 9s;  animation-delay: 4s;   font-size: 16px; }
+    .petal:nth-child(4)  { left: 35%; animation-duration: 12s; animation-delay: 1s;   font-size: 20px; }
+    .petal:nth-child(5)  { left: 50%; animation-duration: 10s; animation-delay: 3s;   font-size: 26px; }
+    .petal:nth-child(6)  { left: 60%; animation-duration: 8.5s;animation-delay: 5s;   font-size: 18px; }
+    .petal:nth-child(7)  { left: 72%; animation-duration: 13s; animation-delay: 1.5s; font-size: 22px; }
+    .petal:nth-child(8)  { left: 82%; animation-duration: 9.5s;animation-delay: 3.5s; font-size: 16px; }
+    .petal:nth-child(9)  { left: 90%; animation-duration: 11s; animation-delay: 6s;   font-size: 24px; }
+    .petal:nth-child(10) { left: 45%; animation-duration: 14s; animation-delay: 7s;   font-size: 20px; }
+
+    @keyframes fall {
+      0%   { top: -60px; opacity: 0; transform: translateX(0) rotate(0deg); }
+      10%  { opacity: 0.8; }
+      90%  { opacity: 0.6; }
+      100% { top: 110vh; opacity: 0; transform: translateX(60px) rotate(360deg); }
+    }
+
+    /* Header crown */
+    .crown-area {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-bottom: 10px;
+      animation: fadeDown 1.2s ease both;
+    }
+    .crown-emoji {
+      font-size: 58px;
+      display: block;
+      animation: float 3s ease-in-out infinite;
+      filter: drop-shadow(0 4px 12px rgba(212,80,122,0.35));
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    /* Letter envelope wrapper */
+    .envelope-wrapper {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 680px;
+      animation: fadeUp 1.4s ease both;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* The letter card */
+    .letter {
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow:
+        0 4px 30px rgba(212,80,122,0.12),
+        0 1px 4px rgba(212,80,122,0.08),
+        inset 0 0 0 1px rgba(232,123,163,0.18);
+      padding: 52px 52px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Corner roses */
+    .letter::before,
+    .letter::after {
+      content: '🌸';
+      position: absolute;
+      font-size: 48px;
+      opacity: 0.18;
+    }
+    .letter::before { top: 18px; left: 18px; transform: rotate(-20deg); }
+    .letter::after  { bottom: 18px; right: 18px; transform: rotate(15deg); }
+
+    /* Top decorative line */
+    .deco-line {
+      text-align: center;
+      font-size: 22px;
+      letter-spacing: 10px;
+      color: var(--pink-mid);
+      margin-bottom: 28px;
+      opacity: 0.7;
+    }
+
+    /* Title */
+    .letter-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--pink-deep);
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 12px rgba(212,80,122,0.15);
+    }
+    .letter-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 0 auto 36px;
+      max-width: 340px;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--pink-light), transparent);
+    }
+    .divider-heart { color: var(--pink-deep); font-size: 18px; }
+
+    /* Body text */
+    .letter-salutation {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--pink-deep);
+      margin-bottom: 20px;
+    }
+    .letter-body {
+      color: var(--text-mid);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .letter-body strong {
+      color: var(--pink-deep);
+      font-weight: 600;
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      background: linear-gradient(135deg, var(--pink-pale), #fff5f9);
+      border-left: 4px solid var(--pink-mid);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    /* Qualities list */
+    .qualities {
+      list-style: none;
+      margin: 24px 0 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .qualities li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--text-mid);
+      font-size: 1.02rem;
+      line-height: 1.6;
+    }
+    .qualities li .icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Signature area */
+    .signature-area {
+      text-align: right;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--pink-light);
+    }
+    .signature-label {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      color: var(--text-mid);
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+    .signature {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--pink-deep);
+    }
+    .signature-hearts {
+      font-size: 22px;
+      display: block;
+      margin-top: 6px;
+      color: var(--pink-mid);
+      letter-spacing: 4px;
+    }
+
+    /* Bottom badges */
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 40px;
+      z-index: 1;
+      position: relative;
+      animation: fadeUp 1.8s ease both;
+    }
+    .badge {
+      background: white;
+      border: 2px solid var(--pink-light);
+      border-radius: 50px;
+      padding: 10px 22px;
+      font-size: 0.9rem;
+      color: var(--pink-deep);
+      font-family: 'Lora', serif;
+      font-style: italic;
+      box-shadow: 0 2px 12px rgba(212,80,122,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+    .badge:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 6px 20px rgba(212,80,122,0.2);
+    }
+
+    /* Footer */
+    .footer-note {
+      z-index: 1;
+      position: relative;
+      margin-top: 32px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--pink-mid);
+      text-align: center;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 520px) {
+      .letter { padding: 36px 24px 36px; }
+      .letter-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating petals -->
+  <div class="petals">
+    <span class="petal">🌸</span>
+    <span class="petal">🌷</span>
+    <span class="petal">🌸</span>
+    <span class="petal">💮</span>
+    <span class="petal">🌸</span>
+    <span class="petal">🌷</span>
+    <span class="petal">🌸</span>
+    <span class="petal">💮</span>
+    <span class="petal">🌸</span>
+    <span class="petal">🌷</span>
+  </div>
+
+  <!-- Crown -->
+  <div class="crown-area">
+    <span class="crown-emoji">👑</span>
+  </div>
+
+  <!-- Letter -->
+  <div class="envelope-wrapper">
+    <div class="letter">
+      <div class="deco-line">· · · ✦ · · ·</div>
+
+      <h1 class="letter-title">Dla Najlepszej Mamy<br>na Świecie</h1>
+      <p class="letter-subtitle">— z miłością, zawsze i na zawsze —</p>
+
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-heart">❤️</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <p class="letter-salutation">Droga Mamo,</p>
+
+      <p class="letter-body">
+        Są ludzie, których obecność sprawia, że świat jest cieplejszy, piękniejszy i bezpieczniejszy.
+        Ty jesteś <strong>właśnie taką osobą</strong> — i chcę, żebyś o tym wiedziała.
+      </p>
+
+      <div class="highlight-box">
+        „Mamo, jesteś moim domem. Bez względu na to, gdzie jestem — wiem, że masz mnie w sercu."
+      </div>
+
+      <p class="letter-body">
+        Dziękuję Ci za wszystko — za każdą chwilę, w której byłaś przy mnie. Za każdą noc,
+        kiedy czuwałaś. Za każde „wszystko będzie dobrze", które naprawdę pomagało.
+        Za Twoje ramiona, do których zawsze mogłam / mogłem wracać.
+      </p>
+
+      <ul class="qualities">
+        <li>
+          <span class="icon">🌸</span>
+          <span>Jesteś <strong>najsilniejszą</strong> osobą, jaką znam — nawet gdy sama potrzebujesz wsparcia, dajesz z siebie wszystko.</span>
+        </li>
+        <li>
+          <span class="icon">💗</span>
+          <span>Twoja <strong>miłość jest bezwarunkowa</strong> — kochasz mnie w moich najgorszych chwilach tak samo, jak w najlepszych.</span>
+        </li>
+        <li>
+          <span class="icon">✨</span>
+          <span>Twój <strong>uśmiech rozjaśnia pokój</strong> — i moje życie, każdego dnia.</span>
+        </li>
+        <li>
+          <span class="icon">🌷</span>
+          <span>Nauczyłaś mnie <strong>dobroci, odwagi i tego, co naprawdę ważne</strong> w życiu.</span>
+        </li>
+        <li>
+          <span class="icon">💫</span>
+          <span>Jesteś moim <strong>wzorem i inspiracją</strong> — chcę być dla innych takim człowiekiem, jakim Ty jesteś dla mnie.</span>
+        </li>
+      </ul>
+
+      <p class="letter-body">
+        Nie ma słów, które w pełni wyraziłyby to, co do Ciebie czuję.
+        Ale niech ta strona będzie małym przypomnieniem: <strong>jesteś kochana, doceniana i absolutnie wyjątkowa.</strong>
+        Każdego dnia.
+      </p>
+
+      <div class="signature-area">
+        <p class="signature-label">Z całego serca,</p>
+        <p class="signature">Twoje dziecko 🌸</p>
+        <span class="signature-hearts">♡ ♡ ♡</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Badges -->
+  <div class="badges">
+    <span class="badge">🌸 Najlepsza Mama</span>
+    <span class="badge">👑 Moja Królowa</span>
+    <span class="badge">💗 Bezgranicznie Kochana</span>
+    <span class="badge">✨ Absolutnie Wyjątkowa</span>
+    <span class="badge">🌷 Mój Bohater</span>
+  </div>
+
+  <p class="footer-note">Zrobione z miłością — specjalnie dla Ciebie 🌸</p>
+
+</body>
+</html>
